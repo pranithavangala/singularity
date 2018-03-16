@@ -1,4 +1,4 @@
-BootStrap: docker
+BootStrap: shub
 From: shub://pranithavangala/singularity:0_part1
 
 %labels
