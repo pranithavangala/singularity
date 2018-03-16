@@ -20,7 +20,8 @@ From: pranithavangala/singularity:0_part1
 %post
 #####
 ## R
-
+export SRC=/usr/local/src
+export BIN=/usr/local/bin
 export R_VERSION=R-3.4.3
 
 curl http://cran.r-project.org/src/base/R-3/R-3.4.3.tar.gz -o $R_VERSION.tar.gz && \
