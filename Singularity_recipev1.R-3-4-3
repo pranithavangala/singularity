@@ -30,7 +30,7 @@ apt-get install -y gcc-multilib
 apt-get install -y gobjc++
 apt-get install -y aptitude
 apt-get install -y default-jdk
-apt-get install texinfo
+apt-get install -y texinfo
 
 # Install r-base with ubuntu
 apt-get install -y r-base
