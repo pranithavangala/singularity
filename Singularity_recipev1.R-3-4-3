@@ -35,17 +35,10 @@ apt-get install -y default-jdk
 apt-get install -y r-base
 
 # Install newest version of R from source
- wget https://cran.r-project.org/src/base/R-3/R-3.4.3.tar.gz
-./configure --prefix=/home/jtrembla/software/R/R-3.4.0 --with-x=yes --enable-R-shlib=yes --with-cairo=yes
-make
-# NEWS.pdf file is missing and will make installation crash.
-touch doc/NEWS.pdf
-make install
-
-#curl http://cran.r-project.org/src/base/R-3/R-3.4.3.tar.gz -o $R_VERSION.tar.gz && \
-#       tar xvf $R_VERSION.tar.gz && \
-#       cd $R_VERSION && \
-#	./configure && make && make install
+curl http://cran.r-project.org/src/base/R-3/R-3.4.3.tar.gz -o $R_VERSION.tar.gz && \
+       tar xvf $R_VERSION.tar.gz && \
+       cd $R_VERSION && \
+       ./configure && make && touch doc/NEWS.pdf && make install
 	    
 Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("tidyverse", dep = TRUE)'
 Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("edgeR", dep = TRUE)'
