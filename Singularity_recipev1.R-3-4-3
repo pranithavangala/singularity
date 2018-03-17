@@ -115,7 +115,7 @@ wget https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.3.3.1/bowtie2-2
 ## samtools
 #########
 cd $SRC
-wget https://sourceforge.net/projects/samtools/files/samtools/1.7/samtools-1.7.tar.bz2/download && tar xvf samtools-1.7.tar.bz2
+wget https://sourceforge.net/projects/samtools/files/samtools/1.7/samtools-1.7.tar.bz2/download -O samtools-1.7.tar.bz2 && tar xf samtools-1.7.tar.bz2
 cd samtools-1.7*
 make
 cp samtools-* $BIN
