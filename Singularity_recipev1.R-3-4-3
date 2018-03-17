@@ -88,12 +88,14 @@ export R_VERSION=R-3.4.1
 ## Python 2.7.5
 #####
 
-wget http://python.org/ftp/python/2.7.5/Python-2.7.5.tgz 
-tar xvf Python-2.7.5.tgz
-cd Python-2.7.5
-./configure
-make
+apt-get install -y cpp gcc g++
+apt install python2.7 python-pip
 
+#wget http://python.org/ftp/python/2.7.5/Python-2.7.5.tgz 
+#tar xvf Python-2.7.5.tgz
+#cd Python-2.7.5
+#./configure
+#make
 export HTSLIB_CONFIGURE_OPTIONS=--enable-plugins
 pip install pysam
 pip install numpy scipy matplotlib ipython jupyter pandas sympy nose
