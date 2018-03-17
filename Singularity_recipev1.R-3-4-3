@@ -14,7 +14,7 @@ From: shub://pranithavangala/singularity:0_part1
 %environment
     export SRC=/usr/local/src
     export BIN=/usr/local/bin
-    export R_VERSION=R-3.4.3
+    export R_VERSION=R-3.4.1
     
 
 %post
@@ -23,7 +23,7 @@ From: shub://pranithavangala/singularity:0_part1
 
 export SRC=/usr/local/src
 export BIN=/usr/local/bin
-export R_VERSION=R-3.4.3
+export R_VERSION=R-3.4.1
 
 apt-get install -y xorg-dev
 apt-get install -y gcc-multilib
@@ -37,7 +37,7 @@ apt-get install -y r-base
 apt-get install -y libx11-dev mesa-common-dev libglu1-mesa-dev
 
 # Install newest version of R from source
-curl http://cran.r-project.org/src/base/R-3/R-3.4.3.tar.gz -o $R_VERSION.tar.gz && \
+curl http://cran.r-project.org/src/base/R-3/R-3.4.1.tar.gz -o $R_VERSION.tar.gz && \
        tar xvf $R_VERSION.tar.gz && \
        cd $R_VERSION && \
        ./configure && make && touch doc/NEWS.pdf && make install
