@@ -15,7 +15,15 @@ From: shub://pranithavangala/singularity:0_part1
     export SRC=/usr/local/src
     export BIN=/usr/local/bin
     export R_VERSION=R-3.4.1
-    
+
+%apprun R
+  exec R "$@"
+
+%apprun Rscript
+  exec Rscript "$@"
+
+%runscript
+  exec R "$@"    
 
 %post
 #####
@@ -25,39 +33,46 @@ export SRC=/usr/local/src
 export BIN=/usr/local/bin
 export R_VERSION=R-3.4.1
 
-apt-get install -y xorg-dev
-apt-get install -y gcc-multilib
-apt-get install -y gobjc++
-apt-get install -y aptitude
-apt-get install -y default-jdk
-apt-get install -y texinfo
 
-# Install r-base with ubuntu
-apt-get install -y r-base
-apt-get install -y libx11-dev mesa-common-dev libglu1-mesa-dev
+%post
+  NPROCS=`awk '/^processor/ {s+=1}; END{print s}' /proc/cpuinfo`
+  wget https://cran.rstudio.com/src/base/R-3/R-3.4.3.tar.gz
+  tar xvf R-3.4.3.tar.gz
+  cd R-3.4.3
 
-# Install newest version of R from source
-curl http://cran.r-project.org/src/base/R-3/R-3.4.1.tar.gz -o $R_VERSION.tar.gz && \
-       tar xvf $R_VERSION.tar.gz && \
-       cd $R_VERSION && \
-       ./configure && make && touch doc/NEWS.pdf && make install
-	    
-Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("tidyverse", dep = TRUE)'
-Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("edgeR", dep = TRUE)'
-Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("DESeq2", dep = TRUE)'
-#Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("ape", dep = TRUE)'
-#Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("ctc", dep = TRUE)'
-Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("gplots", dep = TRUE)'
-Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("Biobase", dep = TRUE)'
-Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("qvalue", dep = TRUE)'
-#Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("goseq", dep = TRUE)'
-#Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("Glimma", dep = TRUE)'
-#Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("ROTS", dep = TRUE)'
-Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("GOplot", dep = TRUE)'
-Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("argparse", dep = TRUE)'
-#Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("sm", dep = TRUE)'
-Rscript -e 'install.packages("ggplot2", dep=TRUE)'
-Rscript -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("zinbwave", dep = TRUE)'
+  apt-get update
+  apt-get install -y libblas3 libblas-dev liblapack-dev liblapack3 curl 
+  apt-get install -y libgmp10 libgmp-dev
+  apt-get install -y gcc fort77 aptitude
+  aptitude install -y g++
+  aptitude install -y xorg-dev
+  aptitude install -y libreadline-dev
+  aptitude install -y gfortran
+  gfortran --version
+  apt install -y libssl-dev libxml2-dev libpcre3-dev liblzma-dev libbz2-dev libcurl4-openssl-dev
+
+  apt-get update
+
+  ./configure --enable-R-static-lib --with-blas --with-lapack --enable-R-shlib=yes
+  echo "Will use make with $NPROCS cores."
+  make -j${NPROCS}
+  make install
+  R --version
+
+  echo install.packages\(\"devtools\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"ade4\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"ape\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"FD\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  echo install.packages\(\"ggplot2\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+  R --slave "devtools::install_github('igraph/rigraph')"
+  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
+  biocLite()"
+  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
+  biocLite('dada2')"
+  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
+  biocLite('phyloseq')"
+  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
+  biocLite("zinbwave", dep = TRUE)
 
 ######
 ## Python 2.7.5
