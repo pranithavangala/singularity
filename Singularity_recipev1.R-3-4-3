@@ -97,6 +97,7 @@ apt install python2.7 python-pip
 #./configure
 #make
 export HTSLIB_CONFIGURE_OPTIONS=--enable-plugins
+pip install --upgrade pip
 pip install pysam
 pip install numpy scipy matplotlib ipython jupyter pandas sympy nose
 
