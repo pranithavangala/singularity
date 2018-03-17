@@ -26,17 +26,11 @@ export BIN=/usr/local/bin
 export R_VERSION=R-3.4.3
 
 apt-get install build-essential
-apt-get install fort77
 apt-get install xorg-dev
-apt-get install liblzma-dev  libblas-dev gfortran
 apt-get install gcc-multilib
 apt-get install gobjc++
 apt-get install aptitude
-aptitude install libreadline-dev
-aptitude install libcurl4-openssl-dev
 apt-get install default-jdk
-apt-get install texlive-latex-base
-apt-get install libcairo2-dev 
 
 # Install r-base with ubuntu
 apt-get install r-base
