@@ -25,8 +25,7 @@ export SRC=/usr/local/src
 export BIN=/usr/local/bin
 export R_VERSION=R-3.4.3
 
-apt-get install build-essential
-apt-get install xorg-dev
+#apt-get install xorg-dev
 apt-get install gcc-multilib
 apt-get install gobjc++
 apt-get install aptitude
