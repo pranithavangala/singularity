@@ -34,6 +34,7 @@ apt-get install -y texinfo
 
 # Install r-base with ubuntu
 apt-get install -y r-base
+apt-get install -y libx11-dev mesa-common-dev libglu1-mesa-dev
 
 # Install newest version of R from source
 curl http://cran.r-project.org/src/base/R-3/R-3.4.3.tar.gz -o $R_VERSION.tar.gz && \
