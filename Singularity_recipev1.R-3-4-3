@@ -25,14 +25,14 @@ export SRC=/usr/local/src
 export BIN=/usr/local/bin
 export R_VERSION=R-3.4.3
 
-#apt-get install xorg-dev
-apt-get install gcc-multilib
-apt-get install gobjc++
-apt-get install aptitude
-apt-get install default-jdk
+apt-get install -y xorg-dev
+apt-get install -y gcc-multilib
+apt-get install -y gobjc++
+apt-get install -y aptitude
+apt-get install -y default-jdk
 
 # Install r-base with ubuntu
-apt-get install r-base
+apt-get install -y r-base
 
 # Install newest version of R from source
  wget https://cran.r-project.org/src/base/R-3/R-3.4.3.tar.gz
