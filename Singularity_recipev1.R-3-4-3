@@ -69,8 +69,6 @@ export R_VERSION=R-3.4.1
   biocLite()"
   R --slave -e "source('https://bioconductor.org/biocLite.R'); \
   biocLite('dada2')"
-  R --slave -e "source('https://bioconductor.org/biocLite.R'); \
-  biocLite("zinbwave", dep = TRUE)"
   R --slave -e "source(https://bioconductor.org/biocLite.R); biocLite("tidyverse", dep = TRUE)'"
   R --slave -e "source(https://bioconductor.org/biocLite.R); biocLite("edgeR", dep = TRUE)'"
   R --slave -e "source(https://bioconductor.org/biocLite.R); biocLite("DESeq2", dep = TRUE)'"
