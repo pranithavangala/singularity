@@ -57,7 +57,6 @@ export R_VERSION=R-3.4.1
   echo "Will use make with $NPROCS cores."
   make -j${NPROCS}
   make install
-  R --version
 
   echo install.packages\(\"devtools\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
   echo install.packages\(\"ade4\"\, repos\=\'https://cloud.r-project.org\'\, Ncpus\=${NPROCS}\) | R --slave
@@ -84,6 +83,7 @@ export R_VERSION=R-3.4.1
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite('argparse', dep = TRUE)"
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite('sm', dep = TRUE)"
   R --slave -e "source('https://bioconductor.org/biocLite.R'); biocLite('zinbwave', dep = TRUE)"
+
 ######
 ## Python 2.7.5
 #####
