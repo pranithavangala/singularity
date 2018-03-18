@@ -159,6 +159,6 @@ curl -s https://get.nextflow.io | bash
 mv /data/nextflow /usr/bin/.
 chmod 755 /usr/bin/nextflow
 
-mkdir /project /nl /share /.nextflow
+mkdir /project /nl /share /.nextflow /amazon
 mkdir -p /mnt/efs
 
