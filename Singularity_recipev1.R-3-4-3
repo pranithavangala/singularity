@@ -26,9 +26,15 @@ From: shub://pranithavangala/singularity:0_part1
   exec R "$@"    
 
 %post
+######
+## vim
 #####
-## R
 
+apt-get install -y vim
+
+######
+## R
+#####
 export SRC=/usr/local/src
 export BIN=/usr/local/bin
 export R_VERSION=R-3.4.1
