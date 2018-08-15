@@ -13,4 +13,4 @@ From: shub://pranithavangala/singularity:r-3-4-3
 
 %post
     
-    Rscript -e 'install.packages(c("biclust","dplyr","reshape2","gplots","stringdist","stringr","data.table"))'
+    R --slave -e 'install.packages(c("biclust","dplyr","reshape2","gplots","stringdist","stringr","data.table"))'
