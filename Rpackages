@@ -1,0 +1,10 @@
+BootStrap: shub
+From: shub://pranithavangala/singularity:0_part1
+
+%labels
+
+    AUTHOR Pranitha Vangala <pranitha.vangala@gmail.com>
+    Version v1.0
+
+%post
+
