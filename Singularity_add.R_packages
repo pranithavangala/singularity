@@ -13,4 +13,11 @@ From: shub://pranithavangala/singularity:r-3-4-3
 
 %post
     
-    R --slave -e 'install.packages(c("biclust","dplyr","reshape2","gplots","stringdist","stringr","data.table"))'
+
+    echo install.packages\(\"biclust\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+    echo install.packages\(\"dplyr\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+    echo install.packages\(\"reshape2\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+    echo install.packages\(\"gplots\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+    echo install.packages\(\"stringdist\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+    echo install.packages\(\"stringr\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+    echo install.packages\(\"data.table\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
