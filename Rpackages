@@ -1,5 +1,5 @@
 BootStrap: shub
-From: shub://pranithavangala/singularity:0_part1
+From: shub://pranithavangala/singularity:Singularity_recipev1.0_addR.3.4.3
 
 %labels
 
