@@ -7,4 +7,4 @@ From: shub://pranithavangala/singularity:0_part1
     Version v1.0
 
 %post
-
+Rscript -e 'install.packages(c("biclust","dplyr","reshape2","gplots","stringdist","stringr","data.table"))'
