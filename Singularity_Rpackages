@@ -1,10 +1,16 @@
 BootStrap: shub
-From: shub://pranithavangala/singularity:Singularity_recipev1.0_addR.3.4.3
+From: shub://pranithavangala/singularity:singularity:r-3-4-3
 
 %labels
 
     AUTHOR Pranitha Vangala <pranitha.vangala@gmail.com>
     Version v1.0
 
+%environment
+    export SRC=/usr/local/src
+    export BIN=/usr/local/bin
+    export R_VERSION=R-3.4.3
+
 %post
-Rscript -e 'install.packages(c("biclust","dplyr","reshape2","gplots","stringdist","stringr","data.table"))'
+    
+    Rscript -e 'install.packages(c("biclust","dplyr","reshape2","gplots","stringdist","stringr","data.table"))'
