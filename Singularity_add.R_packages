@@ -21,3 +21,5 @@ From: shub://pranithavangala/singularity:r-3-4-3
     echo install.packages\(\"stringdist\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
     echo install.packages\(\"stringr\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
     echo install.packages\(\"data.table\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+    R --slave -e 'source("http://bioconductor.org/biocLite.R");library(BiocInstaller); biocLite("Sushi", dep = TRUE)'
+    
