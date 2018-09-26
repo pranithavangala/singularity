@@ -1,5 +1,5 @@
 BootStrap: shub
-From: shub://pranithavangala/singularity:0_part1
+From: shub://pranithavangala/singularity:r-3-4-3
 
 %labels
 
@@ -22,7 +22,7 @@ echo 'export PATH=$PATH:/opt/conda/bin' > /etc/profile.d/conda.sh && \
  conda config --add channels r
  conda config --add channels defaults
  conda config --add channels bioconda
- conda install r-essentials bioconductor-deseq2 bioconductor-edger r-seqinr rstudio
+ #conda install r-essentials bioconductor-deseq2 bioconductor-edger r-seqinr rstudio
 
 ##Install HOMER
  wget http://homer.ucsd.edu/homer/configureHomer.pl
