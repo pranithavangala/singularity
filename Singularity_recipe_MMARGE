@@ -12,6 +12,10 @@ From: shub://pranithavangala/singularity:0_part1
     export R_VERSION=R-3.4.3
 
 %post
+echo 'export PATH=$PATH:/opt/conda/bin' > /etc/profile.d/conda.sh && \
+    wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.14-Linux-x86_64.sh -O ~/miniconda.sh && \
+    /bin/bash ~/miniconda.sh -b -p /opt/conda && \
+    rm ~/miniconda.sh
 
 ##Install conda, bioconda and some tools necessary for HOMER
  conda config --add channels conda-forge
