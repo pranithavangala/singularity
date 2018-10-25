@@ -5,7 +5,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 OSVersion: xenial
 
 %labels
-    AUTHOR Nicolas Servant
+    AUTHOR Pranitha Vangala
 
 %pre
     apt-get install -y debootstrap
@@ -86,3 +86,6 @@ OSVersion: xenial
     INSTALLED_VERSION=$(find /usr/local/bin -name HiC-Pro | xargs dirname)
     export PATH=$PATH:$INSTALLED_VERSION 
     export LANG=C
+
+mkdir /project /nl /share /.nextflow
+mkdir -p /mnt/efs
