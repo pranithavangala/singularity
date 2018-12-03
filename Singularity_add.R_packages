@@ -32,3 +32,4 @@ From: shub://pranithavangala/singularity:r-3-4-3
 	echo install.packages\(\"PRROC\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
 	echo install.packages\(\"parallel\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
 	echo install.packages\(\"doParallel\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
+	echo install.packages\(\"randomForest\"\, repos\=\'https://cloud.r-project.org/\'\, Ncpus\=${NPROCS}\) | R --slave
