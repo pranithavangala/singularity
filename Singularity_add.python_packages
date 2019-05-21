@@ -15,4 +15,4 @@ From: shub://pranithavangala/singularity:r-3-4-3
 pip install --upgrade pip
 pip install pysam
 pip install numpy scipy matplotlib ipython jupyter pandas sympy nose
-pip install umi_tools
+pip install umi_tools==0.5.5
