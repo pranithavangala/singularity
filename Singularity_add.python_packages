@@ -16,3 +16,4 @@ pip install --upgrade pip
 pip install pysam
 pip install numpy scipy matplotlib ipython jupyter pandas sympy nose
 pip install umi_tools==0.5.5
+pip install g2gtools
